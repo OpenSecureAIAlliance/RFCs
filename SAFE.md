@@ -122,7 +122,7 @@ Members must preserve and provide affected organizations with the evidence neede
 - Records of the operating and test environments, including infrastructure, runtime and software versions, images or build definitions retained and identified by content digest, the agent's working directory at the start of the affected session (e.g., a repository with both committed and uncommitted changes), network paths, isolation boundaries, connected systems, relevant configurations, and any differences between the intended environment, the environment as described to the agent, and the environment encountered.
 - Prompts (including system prompts and tool definitions), tool calls and their results as delivered to the agent (noting any truncation), logs, and third-party dependencies, including the safeguards, external tools, APIs, harnesses and serving artifacts observed.
 - Permissions and credential identifiers, types, scopes and revocation status available during the run; secret values should remain protected in restricted forensic custody where preservation is necessary. Do not include reusable passwords, tokens or private keys in incident reports, alerts or advisories; use protected references and scope instead.
-- Human approvals, automated monitor approvals and other intervention events while preserving the originating principal, authorization source, delegation chain and approved action scope.
+- Human approvals, automated monitor approvals and other intervention events while preserving the originating principal, authorization source, delegation chain and approved action scope. Record the approved scope in structured form and link it to the specific attempted or executed actions being assessed, using stable resource identifiers rather than display names.
 - Files and external artifacts created, modified or deleted, with location, time of change and, if available, the previous state before any changes occurred.
 - Detection, containment and recovery events, including any methods for reproduction testing based on remediation evidence. Separate original incident observations and preserved state from later replay, reproduction and remediation tests. Never silently substitute a new run or configuration for missing original evidence.
 - For physical systems, preserve relevant sensor and actuator records, physical state, safety interlocks, operating limits and human interventions.
@@ -135,6 +135,8 @@ Members must also provide a preliminary control-failure analysis within 30 days 
 ## Review Framework
 
 Examine each incident across the complete operating stack. For every applicable control layer, state the expected outcome, assessment and supporting evidence, using pass, fail, insufficient evidence or not applicable. Pass means the stated control outcome is supported; fail means it is contradicted. Missing, inaccessible or inconclusive evidence is insufficient evidence, with the reason recorded. These labels describe a specific assessment but do not indicate general system safety or legal compliance.
+
+Where authorization is material to a finding, assess authority validity and scope containment separately; either may be insufficient evidence while the other is supported. Any determination that an action stayed within or exceeded its approved scope should identify a versioned comparison method and preserve the normalized inputs and evidence references needed for independent recomputation.
 
 | Control layer | Review Criteria |
 |---|---|
