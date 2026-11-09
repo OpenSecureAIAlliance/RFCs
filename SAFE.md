@@ -128,6 +128,8 @@ Members must preserve and provide affected organizations with the evidence neede
 - For physical systems, preserve relevant sensor and actuator records, physical state, safety interlocks, operating limits and human interventions.
 - For human language-dependent controls, record the languages, scripts and code-switching involved, and whether the implicated controls were evaluated for those inputs.
 
+For embodied-AI incidents, distinguish AI-generated action commands from observed physical execution. Link relevant AI inputs and commands to recorded safeguard decisions, interventions and resulting physical state using evidence identifiers and timestamps. State known clock offsets or synchronization uncertainty across these records and how they limit conclusions about event order, intervention timing and causal contribution. A generated command alone does not establish that motion occurred, and an intervention record alone does not establish that it prevented harm.
+
 Members must also provide a preliminary control-failure analysis within 30 days and report near misses, not only events that produce confirmed harm.
 
 ---
